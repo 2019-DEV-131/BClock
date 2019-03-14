@@ -61,7 +61,7 @@ struct BClock {
     }
     
     var time: [LampState] {
-        return []
+        return seconds + fiveHours + singleHours + fiveMinutes + singleMinutes
     }
     
     

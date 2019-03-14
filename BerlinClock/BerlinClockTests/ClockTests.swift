@@ -28,7 +28,7 @@ class ClockTests: XCTestCase {
         components.second = 0
         
         // Y_O_O_O_O_O_O_O_O_O_O_O_O_O_O_O_O_O_O_O_O_O_O_O
-        let expected = [BClock.LampState.R,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O]
+        let expected = [BClock.LampState.R,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O,.O, .O]
         
         let date = Calendar.current.date(from: components)!
         
