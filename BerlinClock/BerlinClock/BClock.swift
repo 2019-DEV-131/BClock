@@ -10,11 +10,18 @@ import Foundation
 
 struct BClock {
     
-    var date: Date
+    private var dateComponents: DateComponents!
+    
+    var date: Date {
+        didSet {
+            dateComponents = Calendar.current.dateComponents([Calendar.Component.hour, .minute, .second], from: date)
+        }
+    }
     
     // Init with a given date but default to the current date
     init(_ date: Date = Date()) {
         self.date = date
+        dateComponents = Calendar.current.dateComponents([Calendar.Component.hour, .minute, .second], from: date)
     }
     
     // Internal ENUM for the Lamp state
@@ -28,22 +35,24 @@ struct BClock {
     }
     
     var singleMinutes: [LampState] {
-        let minutes = Calendar.current.component(.minute, from: date)
+        guard let minutes = dateComponents.minute else { return [] }
         return calculateStates(4, onSigns: minutes % 5, onState: .Y)
     }
     
     var fiveMinutes: [LampState] {
-        let minutes = Calendar.current.component(.minute, from: date)
+        guard let minutes = dateComponents.minute else { return [] }
         let result = calculateStates(11, onSigns: calculateOnSigns(minutes), onState: .Y)
         return result.flipping(from: .Y, to: .R, every: 3)
     }
     
     var singleHours: [LampState] {
-        return []
+        guard let hours = dateComponents.hour else { return [] }
+        return calculateStates(4, onSigns: hours % 5, onState: .R)
     }
     
     var fiveHours: [LampState] {
-        return []
+        guard let hours = dateComponents.hour else { return [] }
+        return calculateStates(4, onSigns: calculateOnSigns(hours), onState: .R)
     }
     
     var seconds: [LampState] {
