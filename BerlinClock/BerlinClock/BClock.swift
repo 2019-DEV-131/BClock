@@ -10,6 +10,20 @@ import Foundation
 
 struct BClock {
     
+    // Should have better naming for these enums
+    private enum Const {
+        static let zero = 0
+        static let two = 2
+        static let five = 5
+    }
+    
+    private enum LampsCount {
+        static let singleMinutes = 4
+        static let fiveMinutes = 11
+        static let singleHours = 4
+        static let fiveHours = 4
+    }
+    
     private var dateComponents: DateComponents!
     
     var date: Date {
@@ -36,32 +50,36 @@ struct BClock {
     
     var singleMinutes: [LampState] {
         guard let minutes = dateComponents.minute else { return [] }
-        return calculateStates(4, onSigns: minutes % 5, onState: .Y)
+        return calculateStates(LampsCount.singleMinutes, onSigns: minutes % Const.five, onState: .Y)
     }
     
     var fiveMinutes: [LampState] {
         guard let minutes = dateComponents.minute else { return [] }
-        let result = calculateStates(11, onSigns: calculateOnSigns(minutes), onState: .Y)
+        let result = calculateStates(LampsCount.fiveMinutes, onSigns: calculateOnSigns(minutes), onState: .Y)
         return result.flipping(from: .Y, to: .R, every: 3)
     }
     
     var singleHours: [LampState] {
         guard let hours = dateComponents.hour else { return [] }
-        return calculateStates(4, onSigns: hours % 5, onState: .R)
+        return calculateStates(LampsCount.singleHours, onSigns: hours % Const.five, onState: .R)
     }
     
     var fiveHours: [LampState] {
         guard let hours = dateComponents.hour else { return [] }
-        return calculateStates(4, onSigns: calculateOnSigns(hours), onState: .R)
+        return calculateStates(LampsCount.fiveHours, onSigns: calculateOnSigns(hours), onState: .R)
     }
     
     var seconds: [LampState] {
         guard let seconds = dateComponents.second else { return [] }
-        return seconds % 2 == 0 ? [LampState.R] : [LampState.O]
+        return seconds % Const.two == Const.zero ? [LampState.R] : [LampState.O]
     }
     
     var time: [LampState] {
         return seconds + fiveHours + singleHours + fiveMinutes + singleMinutes
+    }
+    
+    func asDigitalTime(_ lamps:[LampState]) -> Date {
+        return Date()
     }
     
     
@@ -69,11 +87,11 @@ struct BClock {
         
         var result = [LampState]()
         
-        for _ in 0..<onSigns {
+        for _ in Const.zero..<onSigns {
             result.append(onState)
         }
         
-        for _ in 0..<(lamps - onSigns) {
+        for _ in Const.zero..<(lamps - onSigns) {
             result.append(.O)
         }
         
@@ -82,7 +100,7 @@ struct BClock {
     }
     
     private func calculateOnSigns(_ number: Int) -> Int {
-        return (number - (number % 5)) / 5
+        return (number - (number % Const.five)) / Const.five
     }
 }
 
