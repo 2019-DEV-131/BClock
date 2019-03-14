@@ -60,6 +60,10 @@ struct BClock {
         return seconds % 2 == 0 ? [LampState.R] : [LampState.O]
     }
     
+    var time: [LampState] {
+        return []
+    }
+    
     
     private func calculateStates(_ lamps: Int, onSigns: Int, onState: LampState) -> [LampState] {
         

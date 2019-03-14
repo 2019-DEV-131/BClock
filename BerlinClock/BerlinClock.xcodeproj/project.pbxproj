@@ -19,6 +19,7 @@
 		D5CE083F22396DFA00F21CE1 /* SingleHoursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CE083E22396DFA00F21CE1 /* SingleHoursTests.swift */; };
 		D5CE0841223978AA00F21CE1 /* FiveHoursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CE0840223978AA00F21CE1 /* FiveHoursTests.swift */; };
 		D5CE084322397AC100F21CE1 /* SecondsLampTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CE084222397AC100F21CE1 /* SecondsLampTests.swift */; };
+		D5CE0845223A6EC900F21CE1 /* ClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CE0844223A6EC900F21CE1 /* ClockTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D5CE083E22396DFA00F21CE1 /* SingleHoursTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleHoursTests.swift; sourceTree = "<group>"; };
 		D5CE0840223978AA00F21CE1 /* FiveHoursTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveHoursTests.swift; sourceTree = "<group>"; };
 		D5CE084222397AC100F21CE1 /* SecondsLampTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondsLampTests.swift; sourceTree = "<group>"; };
+		D5CE0844223A6EC900F21CE1 /* ClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				D5CE083C22396B7200F21CE1 /* FiveMinutesTests.swift */,
 				D5CE0840223978AA00F21CE1 /* FiveHoursTests.swift */,
 				D5CE084222397AC100F21CE1 /* SecondsLampTests.swift */,
+				D5CE0844223A6EC900F21CE1 /* ClockTests.swift */,
 			);
 			path = BerlinClockTests;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				D5894B0E2238224D001FAB25 /* BClock.swift in Sources */,
 				D5CE083F22396DFA00F21CE1 /* SingleHoursTests.swift in Sources */,
 				D5CE0841223978AA00F21CE1 /* FiveHoursTests.swift in Sources */,
+				D5CE0845223A6EC900F21CE1 /* ClockTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
