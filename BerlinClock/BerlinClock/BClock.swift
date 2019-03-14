@@ -56,7 +56,8 @@ struct BClock {
     }
     
     var seconds: [LampState] {
-        return []
+        guard let seconds = dateComponents.second else { return [] }
+        return seconds % 2 == 0 ? [LampState.R] : [LampState.O]
     }
     
     

@@ -17,7 +17,7 @@ class SecondsLampTests: XCTestCase {
         components.minute = 0
         components.second = 0
         
-        let expected = [BClock.LampState.Y]
+        let expected = [BClock.LampState.R]
         
         let date = Calendar.current.date(from: components)!
         
