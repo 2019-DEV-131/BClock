@@ -18,7 +18,7 @@ class SingleMinutesTests: XCTestCase {
         components.minute = 0
         components.second = 0
         
-        let expected: [BClock.State] = [.O, .O, .O, .O]
+        let expected: [BClock.LampState] = [.O, .O, .O, .O]
         
         let date = Calendar.current.date(from: components)!
         
@@ -35,7 +35,7 @@ class SingleMinutesTests: XCTestCase {
         components.minute = 59
         components.second = 59
         
-        let expected: [BClock.State] = [.Y, .Y, .Y, .Y]
+        let expected: [BClock.LampState] = [.Y, .Y, .Y, .Y]
         
         let date = Calendar.current.date(from: components)!
         
@@ -52,7 +52,7 @@ class SingleMinutesTests: XCTestCase {
         components.minute = 32
         components.second = 00
         
-        let expected: [BClock.State] = [.Y, .Y, .O, .O]
+        let expected: [BClock.LampState] = [.Y, .Y, .O, .O]
         
         let date = Calendar.current.date(from: components)!
         
@@ -69,7 +69,7 @@ class SingleMinutesTests: XCTestCase {
         components.minute = 34
         components.second = 00
         
-        let expected: [BClock.State] = [.Y, .Y, .Y, .Y]
+        let expected: [BClock.LampState] = [.Y, .Y, .Y, .Y]
         
         let date = Calendar.current.date(from: components)!
         
@@ -86,7 +86,7 @@ class SingleMinutesTests: XCTestCase {
         components.minute = 35
         components.second = 00
         
-        let expected: [BClock.State] = [.O, .O, .O, .O]
+        let expected: [BClock.LampState] = [.O, .O, .O, .O]
         
         let date = Calendar.current.date(from: components)!
         
